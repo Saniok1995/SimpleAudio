@@ -1,0 +1,13 @@
+{
+  "name": "com.alexpav.simpleaudio",
+  "displayName": "SimpleAudio",
+  "version": "1.0.0",
+  "unity": "2019.1",
+  "description": "Simple audio service for fast development",
+  "category": "Services",
+  "autor":{
+    "name":"Alex Pavliuchyk",
+    "email":"alexpavliyckik@gmail.com",
+    "url":"https://github.com/Saniok1995"
+  }
+}
