@@ -5,9 +5,12 @@
   "unity": "2019.1",
   "description": "Simple audio service for fast development",
   "category": "Services",
-  "autor":{
+  "author":{
     "name":"Alex Pavliuchyk",
     "email":"alexpavliyckik@gmail.com",
     "url":"https://github.com/Saniok1995"
-  }
+  },
+  "keywords": [
+    "Audio",
+  ],
 }
