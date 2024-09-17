@@ -8,7 +8,7 @@ namespace SimpleAudio
         private readonly Dictionary<string, AudioClip> resources = new(10);
         private readonly string defaultRootAudioPath;
 
-        public ResourcesAudioDataProvider(string rootAudioPath)
+        public ResourcesAudioDataProvider(string rootAudioPath = null)
         {
             defaultRootAudioPath = rootAudioPath;
         }
