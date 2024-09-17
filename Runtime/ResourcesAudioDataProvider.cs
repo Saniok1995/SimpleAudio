@@ -6,27 +6,39 @@ namespace SimpleAudio
     public class ResourcesAudioDataProvider : IAudioDataProvider
     {
         private readonly Dictionary<string, AudioClip> resources = new(10);
+        private readonly string defaultRootAudioPath;
+
+        public ResourcesAudioDataProvider(string rootAudioPath)
+        {
+            defaultRootAudioPath = rootAudioPath;
+        }
 
         public AudioClip GetClip(string audioKey)
         {
-            if (resources.ContainsKey(audioKey))
+            return GetClip(audioKey, defaultRootAudioPath);
+        }
+        
+        public AudioClip GetClip(string audioKey, string rootPath)
+        {
+            if (resources.TryGetValue(audioKey, out var clip))
             {
-                return resources[audioKey];
+                return clip;
             }
 
-            var path = GetAudioPath(audioKey);
+            var path = GetAudioPath(audioKey, rootPath);
             var resource = Resources.Load<AudioClip>(path);
+            
             if (resource == null)
             {
-                Logger.LogError($"resource is null - path ({path})");
+                Logger.LogError($"Resource is null by path: {path}");
             }
 
             resources.Add(audioKey, resource);
             return resource;
         }
-        
-        // TODO move it in config (list of path) with code generation file
-        private string GetAudioPath(string audioKey) => $"Audio/{audioKey}";
+
+        private string GetAudioPath(string rootPath, string audioKey) =>
+            string.IsNullOrEmpty(rootPath) ? audioKey : $"{rootPath}/{audioKey}";
         
         public void Dispose()
         {
