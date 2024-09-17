@@ -25,7 +25,7 @@ namespace SimpleAudio
                 return clip;
             }
 
-            var path = GetAudioPath(audioKey, rootPath);
+            var path = GetAudioPath(rootPath, audioKey);
             var resource = Resources.Load<AudioClip>(path);
             
             if (resource == null)
