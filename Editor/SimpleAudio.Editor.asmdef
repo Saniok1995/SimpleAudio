@@ -1,4 +1,7 @@
 {
 	"name": "SimpleAudio.Editor",
+	"includePlatforms": [
+        "Editor"
+    ],
 	"references":[ "GUID:3a129c5ac03b14038b305c38e7ec61bf" ]
 }
