@@ -117,7 +117,8 @@ namespace SimpleAudio
 
         private AudioSource CreateAudioSource(string tag = null)
         {
-            var sourceObject = Instantiate(new GameObject(), transform);
+            var sourceObject = new GameObject();
+            sourceObject.transform.SetParent(transform);
             sourceObject.name = $"AudioSource({tag ?? "Default"})";
             var source = sourceObject.AddComponent<AudioSource>();
             source.playOnAwake = false;
